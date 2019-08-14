@@ -37,7 +37,9 @@ public class RCTImageCapInsetView extends ImageView {
             setBackground(cache.get(key).getConstantState().newDrawable());
             return;
         }
-
+        
+        if (this.mUri == null) return;
+        
         RCTImageLoaderTask task = new RCTImageLoaderTask(mUri, getContext(), new RCTImageLoaderListener() {
             @Override
             public void onImageLoaded(Bitmap bitmap) {
